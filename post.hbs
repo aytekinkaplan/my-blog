@@ -1,21 +1,12 @@
 {{!< default}}
 
-<article class="post">
-  <header>
-    <h1>{{title}}</h1>
-    <time datetime="{{date format="YYYY-MM-DD"}}">{{date
-        format="MMMM DD, YYYY"
-      }}</time>
+<article class="gh-article {{post_class}}">
+  <header class="gh-header gh-canvas">
+    <h1 class="gh-title">{{title}}</h1>
+    {{#if custom_excerpt}}<p class="gh-excerpt">{{custom_excerpt}}</p>{{/if}}
   </header>
 
-  <section class="post-content">
+  <div class="gh-content gh-canvas">
     {{content}}
-  </section>
-
-  <footer>
-    <p>Written by {{primary_author.name}}</p>
-    {{#if tags}}
-      <p>Tags: {{tags separator=", "}}</p>
-    {{/if}}
-  </footer>
+  </div>
 </article>
