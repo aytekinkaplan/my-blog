@@ -1,3 +1,9 @@
 {{!< default}}
 <h1>{{@site.title}}</h1>
 <h2>This is my blog</h2>
+{{#foreach posts}}
+  <article>
+    <h2><a href="{{url}}">{{title}}</a> - {{date}}"</h2>
+    <p>{{excerpt}}</p>
+  </article>
+{{/foreach}}
