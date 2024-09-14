@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="{{@site.locale}}">
   <head>
     <meta charset="UTF-8" />
@@ -11,41 +12,31 @@
     <meta http-equiv="Cache-Control" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
-    <!-- Güvenlik ve Gizlilik -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;"
-    />
+    <!-- Security and Privacy -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;" />
     <meta name="referrer" content="no-referrer-when-downgrade" />
 
-    <!-- Stil ve Favicon -->
+    <!-- Styles and Favicon -->
     <link rel="stylesheet" href="{{asset 'css/style.css'}}" />
     <link rel="icon" type="image/png" href="{{asset 'images/favicon.png'}}" />
-    <link
-      rel="icon"
-      type="image/svg+xml"
-      href="{{asset 'images/favicon.svg'}}"
-    />
+    <link rel="icon" type="image/svg+xml" href="{{asset 'images/favicon.svg'}}" />
 
-    <!-- Başlık -->
+    <!-- Title -->
     <title>{{@meta_title}}</title>
 
-    <!-- Ghost ve Ek Başlık İçeriği -->
+    <!-- Ghost and Additional Head Content -->
     {{ghost_head}}
     {{@head}}
   </head>
   <body>
-    {{>header}}
-    <!-- Ana İçerik -->
+    {{> header}}
     <main>
       {{{@body}}}
     </main>
-
-    {{>footer}}
-    <!-- Footer -->
+    {{> footer}}
     {{ghost_foot}}
 
-    <!-- Scriptler Asenkron Yükleniyor -->
+    <!-- Scripts -->
     <script src="{{asset 'js/script.js'}}" defer></script>
   </body>
 </html>

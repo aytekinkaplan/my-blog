@@ -1,10 +1,8 @@
 <!-- Navbar -->
 <nav>
   <ul>
-    {{#foreach navigation}}
-      <li>
-        <a href="{{url}}">{{label}}</a>
-      </li>
-    {{/foreach}}
+    {{#each @site.pages}}
+      <li><a href="{{url}}">{{title}}</a></li>
+    {{/each}}
   </ul>
 </nav>
