@@ -1,42 +1,34 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Language" content="{{@site.locale}}" />
-    <meta http-equiv="Content-Style-Type" content="text/css" />
-    <meta http-equiv="Content-Script-Type" content="text/javascript" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Cache-Control" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-
+    
     <!-- Security and Privacy -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; 
+    script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 
+    'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' https:;">
     <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}">
 
     <!-- Styles and Favicon -->
     <link rel="stylesheet" href="{{asset 'css/style.css'}}" />
     <link rel="icon" type="image/png" href="{{asset 'images/favicon.png'}}" />
     <link rel="icon" type="image/svg+xml" href="{{asset 'images/favicon.svg'}}" />
 
-    <!-- Title -->
-    <title>{{@meta_title}}</title>
-
-    <!-- Ghost and Additional Head Content -->
     {{ghost_head}}
-    {{@head}}
-  </head>
-  <body>
+</head>
+<body class="{{body_class}}">
     {{> header}}
     <main>
-      {{{@body}}}
+        {{{body}}}
     </main>
     {{> footer}}
+    
     {{ghost_foot}}
-
-    <!-- Scripts -->
     <script src="{{asset 'js/script.js'}}" defer></script>
-  </body>
+</body>
 </html>
