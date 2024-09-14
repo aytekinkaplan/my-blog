@@ -1,0 +1,51 @@
+<html lang="{{@site.locale}}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Language" content="{{@site.locale}}" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- Güvenlik ve Gizlilik -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:;"
+    />
+    <meta name="referrer" content="no-referrer-when-downgrade" />
+
+    <!-- Stil ve Favicon -->
+    <link rel="stylesheet" href="{{asset 'css/style.css'}}" />
+    <link rel="icon" type="image/png" href="{{asset 'images/favicon.png'}}" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="{{asset 'images/favicon.svg'}}"
+    />
+
+    <!-- Başlık -->
+    <title>{{@meta_title}}</title>
+
+    <!-- Ghost ve Ek Başlık İçeriği -->
+    {{ghost_head}}
+    {{@head}}
+  </head>
+  <body>
+    {{>header}}
+    <!-- Ana İçerik -->
+    <main>
+      {{{@body}}}
+    </main>
+
+    {{>footer}}
+    <!-- Footer -->
+    {{ghost_foot}}
+
+    <!-- Scriptler Asenkron Yükleniyor -->
+    <script src="{{asset 'js/script.js'}}" defer></script>
+  </body>
+</html>
