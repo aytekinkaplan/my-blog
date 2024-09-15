@@ -7,34 +7,50 @@
   </div>
 </section>
 
-<div class="container">
-  <section class="post-feed">
-    {{#foreach posts}}
-      <article class="post-card {{post_class}}">
-        {{#if feature_image}}
-          <div
-            class="post-card-image"
-            style="background-image: url({{feature_image}})"
-          ></div>
-        {{/if}}
-        <div class="post-card-content">
-          <h2 class="post-card-title"><a href="{{url}}">{{title}}</a></h2>
-          <section class="post-card-excerpt">
-            <p>{{excerpt words="33"}}</p>
-          </section>
-          <footer class="post-card-meta">
-            <span class="post-card-author">{{primary_author.name}}</span>
-            <time
-              class="post-card-date"
-              datetime="{{date format="YYYY-MM-DD"}}"
-            >
-              {{date format="D MMM YYYY"}}
-            </time>
-          </footer>
-        </div>
-      </article>
-    {{/foreach}}
+{{#if @site.cover_image}}
+  <section class="site-header-cover">
+    <img
+      srcset="{{img_url @site.cover_image size="s"}} 300w,
+                {{img_url @site.cover_image size="m"}} 600w,
+                {{img_url @site.cover_image size="l"}} 1000w,
+                {{img_url @site.cover_image size="xl"}} 2000w"
+      sizes="100vw"
+      src="{{img_url @site.cover_image size="xl"}}"
+      alt="{{@site.title}}"
+    />
   </section>
+{{/if}}
 
-  {{pagination}}
-</div>
+<main class="content-area">
+  <div class="container">
+    <section class="post-feed">
+      {{#foreach posts}}
+        <article class="post-card {{post_class}}">
+          {{#if feature_image}}
+            <div
+              class="post-card-image"
+              style="background-image: url({{feature_image}})"
+            ></div>
+          {{/if}}
+          <div class="post-card-content">
+            <h2 class="post-card-title"><a href="{{url}}">{{title}}</a></h2>
+            <section class="post-card-excerpt">
+              <p>{{excerpt words="33"}}</p>
+            </section>
+            <footer class="post-card-meta">
+              <span class="post-card-author">{{primary_author.name}}</span>
+              <time
+                class="post-card-date"
+                datetime="{{date format="YYYY-MM-DD"}}"
+              >
+                {{date format="D MMM YYYY"}}
+              </time>
+            </footer>
+          </div>
+        </article>
+      {{/foreach}}
+    </section>
+
+    {{pagination}}
+  </div>
+</main>
