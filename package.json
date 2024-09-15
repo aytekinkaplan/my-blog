@@ -1,0 +1,33 @@
+{
+  "name": "my-blog-theme",
+  "description": "My Blog Theme",
+  "version": "1.0.0",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Aytekin Kaplane",
+    "email": "ytknkpln@gmail.com",
+    "url": "https://aytekinkaplan.com"
+  },
+  "keywords": [
+    "ghost-theme",
+    "ghost",
+    "theme",
+    "blog"
+  ],
+  "config": {
+    "posts_per_page": 5,
+    "card_assets": true
+  },
+  "scripts": {
+    "dev": "gulp",
+    "zip": "gulp zip",
+    "test": "gscan .",
+    "test:ci": "gscan --fatal --verbose ."
+  },
+  "devDependencies": {
+    "gscan": "^4.36.1"
+  }
+}

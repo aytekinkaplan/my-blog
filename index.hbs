@@ -1,0 +1,40 @@
+{{!< default}}
+
+<section class="hero">
+  <div class="container">
+    <h1 class="hero-title">{{@site.title}}</h1>
+    <p class="hero-description">{{@site.description}}</p>
+  </div>
+</section>
+
+<div class="container">
+  <section class="post-feed">
+    {{#foreach posts}}
+      <article class="post-card {{post_class}}">
+        {{#if feature_image}}
+          <div
+            class="post-card-image"
+            style="background-image: url({{feature_image}})"
+          ></div>
+        {{/if}}
+        <div class="post-card-content">
+          <h2 class="post-card-title"><a href="{{url}}">{{title}}</a></h2>
+          <section class="post-card-excerpt">
+            <p>{{excerpt words="33"}}</p>
+          </section>
+          <footer class="post-card-meta">
+            <span class="post-card-author">{{primary_author.name}}</span>
+            <time
+              class="post-card-date"
+              datetime="{{date format="YYYY-MM-DD"}}"
+            >
+              {{date format="D MMM YYYY"}}
+            </time>
+          </footer>
+        </div>
+      </article>
+    {{/foreach}}
+  </section>
+
+  {{pagination}}
+</div>
