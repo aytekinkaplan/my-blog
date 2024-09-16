@@ -17,10 +17,6 @@
     "theme",
     "blog"
   ],
-  "config": {
-    "posts_per_page": 5,
-    "card_assets": true
-  },
   "scripts": {
     "dev": "gulp",
     "zip": "gulp zip",
@@ -29,5 +25,30 @@
   },
   "devDependencies": {
     "gscan": "^4.36.1"
+  },
+  "config": {
+    "posts_per_page": 5,
+    "custom": {
+      "post_image_style": {
+        "type": "select",
+        "options": [
+          "Wide",
+          "Full",
+          "Small",
+          "Hidden"
+        ],
+        "default": "Wide"
+      },
+      "show_recent_posts_footer": {
+        "type": "boolean",
+        "default": true
+      }
+    },
+    "card_assets": {
+      "include": [
+        "bookmark",
+        "gallery"
+      ]
+    }
   }
 }
